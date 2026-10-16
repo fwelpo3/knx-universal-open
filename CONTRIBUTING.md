@@ -25,6 +25,6 @@ The verification script runs TypeScript checks, characterization tests and depen
 
 ## Licensing note
 
-An explicit open-source license has not yet been selected for the repository. Code is publicly visible, but this does not by itself authorize redistribution or re-use. Please coordinate larger contributions and rights questions with maintainers before submitting them.
+This project is licensed under the [MIT License](LICENSE). By contributing, ensure you have permission to submit your code and any associated test data under these terms.
 
 [Open an issue](https://github.com/fwelpo3/knx-universal-open/issues/new).
