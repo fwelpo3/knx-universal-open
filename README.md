@@ -22,7 +22,7 @@
 
 KNX Universal Open is an open-source initiative to create a **reusable, headless KNX engineering engine**. The goal is to make KNX project understanding, device intelligence, and engineering workflows accessible to developers building CLIs, web applications, integrations, and AI-assisted tools.
 
-> **Early-stage public repository:** The existing private platform is being reviewed for publication. **No production-ready engine is included yet.** This repository currently provides the open project foundation, documentation, and contribution process.
+> **Early public source release:** The TypeScript platform source and characterization tests are now available. This is a development snapshot, not a production-ready release.
 
 ### What we're building
 
@@ -49,18 +49,34 @@ flowchart TD
 
 The design separates file formats, runtime dependencies, and engineering logic so that each part can be developed and tested independently. See [architecture](docs/ARCHITECTURE.md).
 
+## Current source and setup
+
+The repository includes source code in `packages/`, characterization tests in `tests/`, scripts, examples and architecture documentation.
+
+Requirements: Node.js >= 22.6 and npm.
+
+```bash
+git clone https://github.com/fwelpo3/knx-universal-open.git
+cd knx-universal-open
+npm ci
+npm run verify
+```
+
+The verification command runs TypeScript type checking, characterization tests and architecture-boundary checks. The project is not yet published as an npm package (`private: true` in `package.json`).
+
 ## Project status
 
-**Public release preparation.** The original private platform has a TypeScript-based modular design and internal tests, but public code transfer, rights review, reproducible builds and documentation are not complete. We will report verified capabilities as components are published.
-
-- [x] Public community repository
-- [x] Initial project scope and contributor guidance
-- [ ] Code and dependency release audit
-- [ ] Publish reviewed core packages and reproducible tests
-- [ ] Publish SDK examples and supported capability matrix
+- [x] Initial TypeScript engine and SDK source published
+- [x] Characterization tests and verification scripts published
+- [ ] Independent CI verification on GitHub Actions
+- [ ] Complete dependency, rights and security review
+- [ ] Document supported feature maturity and limitations
+- [ ] Decide on and add an explicit open-source license
 - [ ] First tagged release
 
-See the [roadmap](docs/ROADMAP.md) for details.
+**Licensing:** No open-source license has been selected yet. Until a license is added, the repository being public does not grant general reuse or redistribution rights.
+
+See the [roadmap](docs/ROADMAP.md) for planned work.
 
 ## Why another KNX project?
 
