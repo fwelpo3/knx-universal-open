@@ -16,6 +16,8 @@
 
 ---
 
+![KNX Universal Open architecture](docs/assets/architecture-hero.svg)
+
 ## One foundation. Many KNX applications.
 
 KNX Universal Open is an open-source initiative to create a **reusable, headless KNX engineering engine**. The goal is to make KNX project understanding, device intelligence, and engineering workflows accessible to developers building CLIs, web applications, integrations, and AI-assisted tools.
@@ -60,6 +62,10 @@ The design separates file formats, runtime dependencies, and engineering logic s
 
 See the [roadmap](docs/ROADMAP.md) for details.
 
+## Why another KNX project?
+
+Existing projects such as [XKNX Project](https://github.com/XKNX/xknxproject) specialize in project parsing, while [KNXUltimate](https://github.com/Supergiovane/KNXUltimate) addresses KNX communication. Our **intended focus** is a reusable engineering layer: explainable device interpretation, source-independent KNX models, and group-address/link planning. This is a direction for development, **not a claim of feature superiority or current parity**.
+
 ## For developers
 
 Interested in KNX, ETS project formats, smart building software, device classification, or open engineering tools?
@@ -70,6 +76,14 @@ Interested in KNX, ETS project formats, smart building software, device classifi
 4. Propose features, integrations, tests, documentation, or manufacturer-neutral device patterns.
 
 **Looking for collaborators.** Independent developers, KNX integrators, open-source maintainers and smart-building researchers are welcome.
+
+## Contribute in three ways
+
+| Build | Validate | Document |
+| :-- | :-- | :-- |
+| Propose adapters, SDK APIs and developer tools. | Contribute synthetic KNX fixtures and edge-case tests. | Clarify DPT behavior, project models and integration guides. |
+
+Start with [the collaboration discussion](https://github.com/fwelpo3/knx-universal-open/issues/1).
 
 ## Community & contact
 
