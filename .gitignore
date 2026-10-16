@@ -1,0 +1,15 @@
+node_modules/
+dist/
+coverage/
+.env
+.env.*
+!.env.example
+*.etsproj
+*.knxproj
+*.etsapp
+*.p12
+*.pfx
+*.pem
+*.key
+*.lic
+*.license
