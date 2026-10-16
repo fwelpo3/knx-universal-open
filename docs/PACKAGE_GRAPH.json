@@ -1,0 +1,123 @@
+{
+  "schemaVersion": 1,
+  "packages": {
+    "knx-core": {
+      "layer": "foundation",
+      "allowedDependencies": [],
+      "forbiddenExternalDependencies": [
+        "react",
+        "react-dom",
+        "jszip"
+      ]
+    },
+    "knx-model": {
+      "layer": "canonical-model",
+      "allowedDependencies": [
+        "knx-core"
+      ],
+      "forbiddenExternalDependencies": [
+        "react",
+        "react-dom",
+        "jszip"
+      ]
+    },
+    "knx-ets": {
+      "layer": "source-adapter-core",
+      "allowedDependencies": [
+        "knx-core",
+        "knx-model"
+      ],
+      "forbiddenExternalDependencies": [
+        "react",
+        "react-dom",
+        "jszip"
+      ]
+    },
+    "knx-engineering": {
+      "layer": "engineering",
+      "allowedDependencies": [
+        "knx-core",
+        "knx-model"
+      ],
+      "forbiddenExternalDependencies": [
+        "react",
+        "react-dom",
+        "jszip"
+      ]
+    },
+    "knx-pde": {
+      "layer": "source-adapter-core",
+      "allowedDependencies": [
+        "knx-core",
+        "knx-model"
+      ],
+      "forbiddenExternalDependencies": [
+        "react",
+        "react-dom",
+        "jszip"
+      ]
+    },
+    "knx-ets-adapter-dom": {
+      "layer": "runtime-adapter",
+      "allowedDependencies": [
+        "knx-ets"
+      ],
+      "forbiddenExternalDependencies": [
+        "react",
+        "react-dom",
+        "jszip"
+      ]
+    },
+    "knx-ets-adapter-jszip": {
+      "layer": "runtime-adapter",
+      "allowedDependencies": [
+        "knx-ets"
+      ],
+      "forbiddenExternalDependencies": [
+        "react",
+        "react-dom"
+      ]
+    },
+    "knx-sdk": {
+      "layer": "facade",
+      "allowedDependencies": [
+        "knx-core",
+        "knx-model",
+        "knx-ets",
+        "knx-engineering",
+        "knx-pde",
+        "knx-ets-engineering",
+        "knx-visualization"
+      ],
+      "forbiddenExternalDependencies": [
+        "react",
+        "react-dom",
+        "jszip"
+      ]
+    },
+    "knx-ets-engineering": {
+      "layer": "source-engineering-adapter",
+      "allowedDependencies": [
+        "knx-ets",
+        "knx-engineering",
+        "knx-model"
+      ],
+      "forbiddenExternalDependencies": [
+        "react",
+        "react-dom",
+        "jszip"
+      ]
+    },
+    "knx-visualization": {
+      "layer": "visualization",
+      "allowedDependencies": [
+        "knx-engineering"
+      ],
+      "forbiddenExternalDependencies": [
+        "react",
+        "react-dom",
+        "jszip"
+      ]
+    }
+  }
+}

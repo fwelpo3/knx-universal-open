@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "source": "knxproj",
+  "fileName": "minimal.knxproj",
+  "projectName": "Minimal Test Project",
+  "devices": [
+    {
+      "id": "P-1_DI-1",
+      "name": "Schaltaktor",
+      "manufacturer": "Example",
+      "productName": "8fach Aktor",
+      "orderNumber": "AKT-8",
+      "applicationProgramRef": "M-0001_A-0001",
+      "topology": {
+        "physicalAddress": "1.1.10",
+        "areaAddress": "1",
+        "lineAddress": "1.1",
+        "deviceAddress": "10",
+        "path": ["Bereich 1", "Linie 1.1"]
+      },
+      "placement": {
+        "id": "P-1_S-1",
+        "name": "EG / Büro 1",
+        "type": "Room",
+        "path": ["EG", "Büro 1"]
+      },
+      "communicationObjects": [
+        {
+          "id": "P-1_DI-1_O-1",
+          "number": "1",
+          "name": "Kanal A Schalten",
+          "functionText": "Ein / Aus",
+          "datapointType": "DPST-1-1",
+          "objectSize": "1 Bit",
+          "flags": {"communication": "Enabled", "write": "Enabled"},
+          "linkedGroupAddresses": [{"address": "1/0/1", "name": "Büro 1 Licht Schalten"}]
+        }
+      ]
+    }
+  ],
+  "groupAddresses": [
+    {"id": "P-1_GA-1", "name": "Büro 1 Licht Schalten", "address": "1/0/1", "datapointType": "DPST-1-1"}
+  ],
+  "variants": [
+    {
+      "id": "variant-test",
+      "manufacturer": "Example",
+      "productName": "8fach Aktor",
+      "orderNumber": "AKT-8",
+      "applicationProgramRef": "M-0001_A-0001",
+      "activeObjectCount": 1,
+      "deviceIds": ["P-1_DI-1"]
+    }
+  ],
+  "stats": {"deviceCount": 1, "variantCount": 1}
+}

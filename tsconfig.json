@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "ESNext",
+    "lib": [
+      "ES2022",
+      "DOM",
+      "DOM.Iterable"
+    ],
+    "skipLibCheck": true,
+    "moduleResolution": "bundler",
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "allowImportingTsExtensions": true,
+    "noEmit": true,
+    "strict": true
+  },
+  "include": [
+    "packages/knx-core/**/*.ts",
+    "packages/knx-model/**/*.ts",
+    "packages/knx-engineering/**/*.ts",
+    "packages/knx-visualization/**/*.ts",
+    "packages/knx-ets/**/*.ts",
+    "packages/knx-ets-adapter-dom/**/*.ts",
+    "packages/knx-pde/**/*.ts",
+    "packages/knx-sdk/**/*.ts",
+    "packages/knx-ets-engineering/**/*.ts"
+  ]
+}

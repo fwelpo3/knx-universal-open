@@ -1,0 +1,68 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://knx-universal.local/contracts/v1/engineering-pattern-pack.schema.json",
+  "title": "KNX Engineering Pattern Pack",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schemaVersion", "id", "version", "exactPatterns"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "id": { "type": "string", "minLength": 1 },
+    "version": { "type": "string", "minLength": 1 },
+    "vendor": { "type": "string" },
+    "description": { "type": "string" },
+    "exactPatterns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "fingerprint", "functions"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "fingerprint": { "type": "string", "minLength": 1 },
+          "source": { "type": "string" },
+          "functions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["functionId"],
+              "properties": {
+                "functionId": { "type": "string", "minLength": 1 },
+                "channelId": { "type": "string" },
+                "channelName": { "type": "string" },
+                "objectIds": { "type": "array", "items": { "type": "string" } }
+              }
+            }
+          }
+        }
+      }
+    },
+    "applicationFamilyPatterns": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["id", "applicationProgramRef", "channelFunctions"],
+        "properties": {
+          "id": { "type": "string", "minLength": 1 },
+          "manufacturer": { "type": "string" },
+          "applicationProgramRef": { "type": "string", "minLength": 1 },
+          "source": { "type": "string" },
+          "channelFunctions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "required": ["structuralKey", "functionId"],
+              "properties": {
+                "structuralKey": { "type": "string", "minLength": 1 },
+                "functionId": { "type": "string", "minLength": 1 }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

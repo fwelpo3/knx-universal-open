@@ -1,0 +1,328 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://knx-platform.local/contracts/v1/knx-project.schema.json",
+  "title": "KNX Canonical Project",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "locations",
+    "devices",
+    "groupAddresses"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "id": {
+      "type": "string"
+    },
+    "name": {
+      "type": "string"
+    },
+    "devices": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/device"
+      }
+    },
+    "groupAddresses": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/groupAddress"
+      }
+    },
+    "locations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/location"
+      }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "sourceRef": {
+      "type": "object",
+      "required": [
+        "source"
+      ],
+      "properties": {
+        "source": {
+          "type": "string"
+        },
+        "id": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "topologySegment": {
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "address": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        }
+      },
+      "additionalProperties": false
+    },
+    "topology": {
+      "type": "object",
+      "required": [
+        "physicalAddress"
+      ],
+      "properties": {
+        "physicalAddress": {
+          "type": "string"
+        },
+        "area": {
+          "$ref": "#/$defs/topologySegment"
+        },
+        "mainLine": {
+          "$ref": "#/$defs/topologySegment"
+        },
+        "line": {
+          "$ref": "#/$defs/topologySegment"
+        },
+        "deviceAddress": {
+          "type": "string"
+        },
+        "path": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    },
+    "flags": {
+      "type": "object",
+      "properties": {
+        "communication": {
+          "type": "boolean"
+        },
+        "read": {
+          "type": "boolean"
+        },
+        "write": {
+          "type": "boolean"
+        },
+        "transmit": {
+          "type": "boolean"
+        },
+        "update": {
+          "type": "boolean"
+        },
+        "readOnInit": {
+          "type": "boolean"
+        }
+      },
+      "additionalProperties": false
+    },
+    "communicationObject": {
+      "type": "object",
+      "required": [
+        "id",
+        "groupAddresses"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "number": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "text": {
+          "type": "string"
+        },
+        "functionText": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "datapointType": {
+          "type": "string"
+        },
+        "datapointTypeLabel": {
+          "type": "string"
+        },
+        "objectSize": {
+          "type": "string"
+        },
+        "priority": {
+          "type": "string"
+        },
+        "flags": {
+          "$ref": "#/$defs/flags"
+        },
+        "channel": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            }
+          },
+          "additionalProperties": false
+        },
+        "groupAddresses": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "source": {
+          "$ref": "#/$defs/sourceRef"
+        }
+      },
+      "additionalProperties": false
+    },
+    "device": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "topology",
+        "communicationObjects"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "manufacturer": {
+          "type": "string"
+        },
+        "productName": {
+          "type": "string"
+        },
+        "orderNumber": {
+          "type": "string"
+        },
+        "applicationProgramRef": {
+          "type": "string"
+        },
+        "topology": {
+          "$ref": "#/$defs/topology"
+        },
+        "placement": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "name": {
+              "type": "string"
+            },
+            "type": {
+              "type": "string"
+            },
+            "path": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              }
+            }
+          },
+          "additionalProperties": false
+        },
+        "communicationObjects": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/communicationObject"
+          }
+        },
+        "source": {
+          "$ref": "#/$defs/sourceRef"
+        }
+      },
+      "additionalProperties": false
+    },
+    "groupAddress": {
+      "type": "object",
+      "required": [
+        "address",
+        "name"
+      ],
+      "properties": {
+        "address": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "datapointType": {
+          "type": "string"
+        },
+        "source": {
+          "$ref": "#/$defs/sourceRef"
+        }
+      },
+      "additionalProperties": false
+    },
+    "location": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "kind",
+        "path",
+        "deviceIds"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "site",
+            "building",
+            "building-part",
+            "floor",
+            "room",
+            "corridor",
+            "stairway",
+            "distribution-board",
+            "zone",
+            "unknown"
+          ]
+        },
+        "parentId": {
+          "type": "string"
+        },
+        "path": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "deviceIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "source": {
+          "$ref": "#/$defs/sourceRef"
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

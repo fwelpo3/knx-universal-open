@@ -1,0 +1,326 @@
+{
+  "roleCases": [
+    {
+      "name": "switch-command",
+      "point": {
+        "key": "sw",
+        "groupAddress": "1/0/1",
+        "groupName": "Flur Schalten",
+        "dpt": "1.001",
+        "flags": {
+          "communication": true,
+          "write": true,
+          "transmit": false
+        }
+      },
+      "expected": {
+        "kind": "switch",
+        "role": "switch-command"
+      }
+    },
+    {
+      "name": "dimmer-relative",
+      "point": {
+        "key": "dim",
+        "groupAddress": "1/0/2",
+        "groupName": "Flur Dimmen",
+        "dpt": "3.007",
+        "flags": {
+          "communication": true,
+          "write": true,
+          "transmit": false
+        }
+      },
+      "expected": {
+        "kind": "dimmer",
+        "role": "dim-relative"
+      }
+    },
+    {
+      "name": "shading-move",
+      "point": {
+        "key": "shade",
+        "groupAddress": "2/0/1",
+        "groupName": "Büro Jalousie Fahren",
+        "dpt": "1.008",
+        "flags": {
+          "communication": true,
+          "write": true,
+          "transmit": false
+        }
+      },
+      "expected": {
+        "kind": "shading",
+        "role": "move-command"
+      }
+    },
+    {
+      "name": "thermostat-current",
+      "point": {
+        "key": "temp",
+        "groupAddress": "3/0/1",
+        "groupName": "Wohnen Ist Temperatur",
+        "dpt": "9.001",
+        "direction": "feedback",
+        "flags": {
+          "communication": true,
+          "write": false,
+          "transmit": true
+        }
+      },
+      "expected": {
+        "kind": "thermostat",
+        "role": "current-temperature"
+      }
+    },
+    {
+      "name": "scene-command",
+      "point": {
+        "key": "scene",
+        "groupAddress": "4/0/1",
+        "groupName": "Szene 3",
+        "dpt": "18.001",
+        "flags": {
+          "communication": true,
+          "write": true,
+          "transmit": false
+        }
+      },
+      "expected": {
+        "kind": "scene",
+        "role": "scene-command"
+      }
+    },
+    {
+      "name": "rgb-color",
+      "point": {
+        "key": "rgb",
+        "groupAddress": "5/0/1",
+        "groupName": "Küche RGB Farbe",
+        "dpt": "232.600",
+        "flags": {
+          "communication": true,
+          "write": true,
+          "transmit": false
+        }
+      },
+      "expected": {
+        "kind": "rgb",
+        "role": "color-command"
+      }
+    },
+    {
+      "name": "tunable-white-temperature",
+      "point": {
+        "key": "tw",
+        "groupAddress": "6/0/1",
+        "groupName": "Büro Farbtemperatur",
+        "dpt": "7.600",
+        "flags": {
+          "communication": true,
+          "write": true,
+          "transmit": false
+        }
+      },
+      "expected": {
+        "kind": "tunable-white",
+        "role": "color-temperature-command"
+      }
+    }
+  ],
+  "rejectCases": [
+    {
+      "name": "misleading-shading-wrong-dpt",
+      "point": {
+        "key": "bad-shade",
+        "groupAddress": "7/0/1",
+        "groupName": "Jalousie Position",
+        "dpt": "1.001",
+        "flags": {
+          "communication": true,
+          "write": true,
+          "transmit": false
+        }
+      }
+    },
+    {
+      "name": "conflicting-percent-domains",
+      "point": {
+        "key": "bad-percent",
+        "groupAddress": "7/0/2",
+        "groupName": "Dimmen Jalousie Position",
+        "dpt": "5.001",
+        "flags": {
+          "communication": true,
+          "write": true,
+          "transmit": false
+        }
+      }
+    },
+    {
+      "name": "inactive-switch",
+      "point": {
+        "key": "inactive",
+        "groupAddress": "7/0/3",
+        "groupName": "Schalten",
+        "dpt": "1.001",
+        "activeByProject": false,
+        "flags": {
+          "communication": true,
+          "write": true,
+          "transmit": false
+        }
+      }
+    },
+    {
+      "name": "noncommunicating-switch",
+      "point": {
+        "key": "nocomm",
+        "groupAddress": "7/0/4",
+        "groupName": "Schalten",
+        "dpt": "1.001",
+        "activeByProject": true,
+        "flags": {
+          "communication": false,
+          "write": true,
+          "transmit": false
+        }
+      }
+    }
+  ],
+  "functionCases": [
+    {
+      "name": "structured-dimmer",
+      "points": [
+        {
+          "key": "a-sw",
+          "groupAddress": "1/1/1",
+          "groupName": "Büro Decke Schalten",
+          "dpt": "1.001",
+          "deviceId": "actor",
+          "channelId": "CH-A",
+          "activeByProject": true
+        },
+        {
+          "key": "a-dim",
+          "groupAddress": "1/1/2",
+          "groupName": "Büro Decke Dimmen",
+          "dpt": "3.007",
+          "deviceId": "actor",
+          "channelId": "CH-A",
+          "activeByProject": true
+        },
+        {
+          "key": "a-val",
+          "groupAddress": "1/1/3",
+          "groupName": "Büro Decke Helligkeitswert",
+          "dpt": "5.001",
+          "deviceId": "actor",
+          "channelId": "CH-A",
+          "activeByProject": true
+        },
+        {
+          "key": "a-st",
+          "groupAddress": "1/1/4",
+          "groupName": "Büro Decke Rückmeldung Schalten",
+          "dpt": "1.001",
+          "deviceId": "actor",
+          "channelId": "CH-A",
+          "activeByProject": true,
+          "direction": "feedback"
+        },
+        {
+          "key": "a-vst",
+          "groupAddress": "1/1/5",
+          "groupName": "Büro Decke Rückmeldung Helligkeitswert",
+          "dpt": "5.001",
+          "deviceId": "actor",
+          "channelId": "CH-A",
+          "activeByProject": true,
+          "direction": "feedback"
+        },
+        {
+          "key": "t-sw",
+          "groupAddress": "1/1/1",
+          "groupName": "Büro Decke Schalten",
+          "dpt": "1.001",
+          "deviceId": "touch",
+          "channelId": "CH-3",
+          "activeByProject": true
+        },
+        {
+          "key": "t-dim",
+          "groupAddress": "1/1/2",
+          "groupName": "Büro Decke Dimmen",
+          "dpt": "3.007",
+          "deviceId": "touch",
+          "channelId": "CH-3",
+          "activeByProject": true
+        },
+        {
+          "key": "t-val",
+          "groupAddress": "1/1/3",
+          "groupName": "Büro Decke Helligkeitswert",
+          "dpt": "5.001",
+          "deviceId": "touch",
+          "channelId": "CH-3",
+          "activeByProject": true
+        }
+      ],
+      "expected": {
+        "kind": "dimmer",
+        "basis": "project-structure",
+        "matchClass": "exact",
+        "roles": [
+          "brightness-command",
+          "brightness-state",
+          "dim-relative",
+          "switch-command",
+          "switch-state"
+        ],
+        "evidence": [
+          "logical-project-structure",
+          "logical-role-pattern"
+        ]
+      }
+    },
+    {
+      "name": "explicit-scene",
+      "points": [
+        {
+          "key": "scene-3",
+          "groupAddress": "4/1/3",
+          "groupName": "Szene 3",
+          "groupAddressPath": [
+            "Büro",
+            "Szenen",
+            "Szene 3"
+          ],
+          "room": "Büro",
+          "dpt": "18.001",
+          "deviceId": "panel",
+          "channelId": "SC-1",
+          "activeByProject": true,
+          "flags": {
+            "communication": true,
+            "write": true,
+            "transmit": false
+          }
+        }
+      ],
+      "expected": {
+        "kind": "scene",
+        "basis": "evidence-graph",
+        "matchClass": "exact",
+        "roles": [
+          "scene-command"
+        ],
+        "evidence": [
+          "scene-number-explicit",
+          "scene-ga-dedup",
+          "scene-ga-explicit"
+        ]
+      }
+    }
+  ]
+}

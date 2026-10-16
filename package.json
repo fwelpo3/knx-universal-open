@@ -1,0 +1,29 @@
+{
+  "name": "knx-universal-platform",
+  "version": "0.4.1",
+  "private": true,
+  "type": "module",
+  "description": "Headless, reusable KNX engineering platform and SDK",
+  "scripts": {
+    "typecheck": "tsc -p tsconfig.json",
+    "test": "node --test --experimental-strip-types tests/characterization/*.test.ts",
+    "check:boundaries": "node scripts/check-platform-boundaries.mjs",
+    "verify": "npm run typecheck && npm run test && npm run check:boundaries"
+  },
+  "engines": {
+    "node": ">=22.6"
+  },
+  "devDependencies": {
+    "typescript": "5.8.3"
+  },
+  "exports": {
+    "./core": "./packages/knx-core/src/index.ts",
+    "./model": "./packages/knx-model/src/index.ts",
+    "./ets": "./packages/knx-ets/src/index.ts",
+    "./ets-adapter-dom": "./packages/knx-ets-adapter-dom/src/index.ts",
+    "./ets-adapter-jszip": "./packages/knx-ets-adapter-jszip/src/index.ts",
+    "./engineering": "./packages/knx-engineering/src/index.ts",
+    "./sdk": "./packages/knx-sdk/src/index.ts",
+    "./visualization": "./packages/knx-visualization/src/index.ts"
+  }
+}

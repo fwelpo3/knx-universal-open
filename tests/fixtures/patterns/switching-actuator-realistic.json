@@ -1,0 +1,124 @@
+{
+  "description": "Synthetic but realistic KNX 4-channel switching actuator fixture. It models common ETS object layout without claiming an exact vendor product database.",
+  "device": {
+    "id": "fixture-switch-4x",
+    "name": "Schaltaktor 4-fach",
+    "manufacturer": "KNX Fixture Systems GmbH",
+    "productName": "4-channel switching actuator",
+    "orderNumber": "SA-0416",
+    "applicationProgramRef": "M-00FA_A-0101-01-0000",
+    "topology": {
+      "physicalAddress": "1.1.20"
+    },
+    "communicationObjects": [
+      {
+        "id": "ko-a-switch",
+        "number": "0",
+        "text": "Schalten",
+        "datapointType": "DPST-1-1",
+        "flags": {
+          "communication": true,
+          "write": true
+        },
+        "channel": {
+          "id": "A",
+          "name": "Kanal A"
+        },
+        "groupAddresses": []
+      },
+      {
+        "id": "ko-a-status",
+        "number": "1",
+        "text": "Status Schalten",
+        "datapointType": "DPT-1.001",
+        "flags": {
+          "communication": true,
+          "read": true,
+          "transmit": true
+        },
+        "channel": {
+          "id": "A",
+          "name": "Kanal A"
+        },
+        "groupAddresses": []
+      },
+      {
+        "id": "ko-a-lock",
+        "number": "2",
+        "text": "Sperren",
+        "datapointType": "1.003",
+        "flags": {
+          "communication": true,
+          "write": true
+        },
+        "channel": {
+          "id": "A",
+          "name": "Kanal A"
+        },
+        "groupAddresses": []
+      },
+      {
+        "id": "ko-b-switch",
+        "number": "10",
+        "text": "Schalten",
+        "datapointType": "DPST-1-1",
+        "flags": {
+          "communication": true,
+          "write": true
+        },
+        "channel": {
+          "id": "B",
+          "name": "Kanal B"
+        },
+        "groupAddresses": []
+      },
+      {
+        "id": "ko-b-status",
+        "number": "11",
+        "text": "Status Schalten",
+        "datapointType": "DPT-1.001",
+        "flags": {
+          "communication": true,
+          "read": true,
+          "transmit": true
+        },
+        "channel": {
+          "id": "B",
+          "name": "Kanal B"
+        },
+        "groupAddresses": []
+      },
+      {
+        "id": "ko-b-lock",
+        "number": "12",
+        "text": "Sperren",
+        "datapointType": "1.003",
+        "flags": {
+          "communication": true,
+          "write": true
+        },
+        "channel": {
+          "id": "B",
+          "name": "Kanal B"
+        },
+        "groupAddresses": []
+      },
+      {
+        "id": "ko-global-alarm",
+        "number": "100",
+        "text": "Zentral Alarm",
+        "datapointType": "DPST-1-5",
+        "flags": {
+          "communication": true,
+          "write": true
+        },
+        "groupAddresses": []
+      }
+    ]
+  },
+  "provenance": {
+    "classification": "synthetic",
+    "authoritativeManufacturerArtifact": false,
+    "note": "Hand-authored realistic fixture for contract tests; not copied from or claimed to represent a manufacturer KNX product database."
+  }
+}

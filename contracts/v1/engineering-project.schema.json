@@ -1,0 +1,90 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://knx-platform.local/contracts/v1/engineering-project.schema.json",
+  "title": "KNX Engineering Project",
+  "type": "object",
+  "required": ["schemaVersion", "locations", "definitions", "instances"],
+  "properties": {
+    "schemaVersion": { "const": 1 },
+    "id": { "type": "string" },
+    "name": { "type": "string" },
+    "locations": { "type": "array", "items": { "$ref": "#/$defs/location" } },
+    "definitions": { "type": "array", "items": { "$ref": "#/$defs/definition" } },
+    "instances": { "type": "array", "items": { "$ref": "#/$defs/instance" } }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "location": {
+      "type": "object",
+      "required": ["id", "name", "kind"],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "kind": { "enum": ["site", "building", "floor", "area", "room", "zone", "unknown"] },
+        "parentId": { "type": "string" },
+        "code": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "slot": {
+      "type": "object",
+      "required": ["id", "name"],
+      "properties": {
+        "id": { "type": "string" },
+        "name": { "type": "string" },
+        "datapointType": { "type": "string" },
+        "offset": { "type": "integer" },
+        "role": { "enum": ["command", "feedback", "unknown"] },
+        "functionalGroupId": { "type": "string" },
+        "capabilities": { "type": "array", "items": { "type": "string" } }
+      },
+      "additionalProperties": true
+    },
+    "definition": {
+      "type": "object",
+      "required": ["id", "label", "slots"],
+      "properties": {
+        "id": { "type": "string" },
+        "label": { "type": "string" },
+        "code": { "type": "string" },
+        "category": { "type": "string" },
+        "capabilities": { "type": "array", "items": { "type": "string" } },
+        "slots": { "type": "array", "items": { "$ref": "#/$defs/slot" } }
+      },
+      "additionalProperties": true
+    },
+    "endpoint": {
+      "type": "object",
+      "required": ["deviceId", "communicationObjectId"],
+      "properties": {
+        "deviceId": { "type": "string" },
+        "communicationObjectId": { "type": "string" }
+      },
+      "additionalProperties": false
+    },
+    "binding": {
+      "type": "object",
+      "required": ["slotId", "endpoint", "method"],
+      "properties": {
+        "slotId": { "type": "string" },
+        "endpoint": { "$ref": "#/$defs/endpoint" },
+        "method": { "enum": ["manual", "exact", "semantic", "rule"] },
+        "matchClass": { "enum": ["exact-signature", "family-pattern", "structural-pattern", "semantic-pattern", "candidate"] },
+        "confidence": { "type": "number", "minimum": 0, "maximum": 1, "deprecated": true }
+      },
+      "additionalProperties": true
+    },
+    "instance": {
+      "type": "object",
+      "required": ["id", "definitionId", "bindings"],
+      "properties": {
+        "id": { "type": "string" },
+        "definitionId": { "type": "string" },
+        "label": { "type": "string" },
+        "locationId": { "type": "string" },
+        "bindings": { "type": "array", "items": { "$ref": "#/$defs/binding" } }
+      },
+      "additionalProperties": false
+    }
+  }
+}

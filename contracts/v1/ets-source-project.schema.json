@@ -1,0 +1,88 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://knx-platform.local/contracts/v1/ets-source-project.schema.json",
+  "title": "ETS Source Project",
+  "type": "object",
+  "required": [
+    "schemaVersion",
+    "source",
+    "devices",
+    "groupAddresses",
+    "variants",
+    "stats"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "source": {
+      "const": "knxproj"
+    },
+    "fileName": {
+      "type": "string"
+    },
+    "projectId": {
+      "type": "string"
+    },
+    "projectName": {
+      "type": "string"
+    },
+    "locations": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/location"
+      }
+    },
+    "devices": {
+      "type": "array"
+    },
+    "groupAddresses": {
+      "type": "array"
+    },
+    "variants": {
+      "type": "array"
+    },
+    "stats": {
+      "type": "object"
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "location": {
+      "type": "object",
+      "required": [
+        "id",
+        "name",
+        "path",
+        "deviceIds"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "type": {
+          "type": "string"
+        },
+        "parentId": {
+          "type": "string"
+        },
+        "path": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "deviceIds": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

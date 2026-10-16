@@ -13,3 +13,7 @@ coverage/
 *.key
 *.lic
 *.license
+
+node_modules/
+npm-ci.*.log
+
