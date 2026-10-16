@@ -71,10 +71,10 @@ The verification command runs TypeScript type checking, characterization tests a
 - [ ] Independent CI verification on GitHub Actions
 - [ ] Complete dependency, rights and security review
 - [ ] Document supported feature maturity and limitations
-- [ ] Decide on and add an explicit open-source license
+- [ ] MIT license added
 - [ ] First tagged release
 
-**Licensing:** No open-source license has been selected yet. Until a license is added, the repository being public does not grant general reuse or redistribution rights.
+**License:** [MIT](LICENSE). Check ownership and third-party rights before contributing files or datasets.
 
 See the [roadmap](docs/ROADMAP.md) for planned work.
 
